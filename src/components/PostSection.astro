@@ -1,0 +1,15 @@
+---
+import { getLatestPosts } from "../lib/wp";
+import ProductCard from "../components/ProductCard.astro";
+
+const featuredPosts = await getLatestPosts({perPage: 3});
+
+export const prerender = false;
+---
+
+<section class="container mx-auto px-4 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-center">Últimos artículos</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {featuredPosts.map((post) => <ProductCard {...post} />)}
+  </div>
+</section>
