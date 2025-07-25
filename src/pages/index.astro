@@ -1,13 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import mainLogo from "../assets/logo_white.webp";
-import featuredImage from "../assets/index-bg.webp"
+import featuredImage from "../assets/index-bg.webp";
 import { Image } from "astro:assets";
+import RotatingText from "../components/RotatingText.astro";
 
 const HEAD_CONTENT = {
   title: "Reformas Hidalvento - Reformas del hogar de Valencia, España.",
-  description: "Expertos en reformas integrales del hogar en Valencia. Calidad, experiencia y compromiso."
-}
+  description:
+    "Expertos en reformas integrales del hogar en Valencia. Calidad, experiencia y compromiso.",
+};
 
 export const prerender = true;
 ---
@@ -23,9 +25,12 @@ export const prerender = true;
       <p>{/* Aquí va un texto eficiente para el seo, descubrimiento */}</p>
     </div>
     {/* Capa de oscurecimiento */}
-    <div class="absolute top-0 left-0 w-full h-dvh bg-black/60 z-10" /> {/* h-[calc(100dvh-56px)] top-[56px] */}
+    <div class="absolute top-0 left-0 w-full h-dvh bg-black/60 z-10"></div>
+    {/* h-[calc(100dvh-56px)] top-[56px] */}
     {/* Contenedor del bloque entero centrado */}
-    <div class="absolute top-0 left-0 w-full h-dvh z-20 flex flex-col items-center justify-center text-center px-4">
+    <div
+      class="absolute top-0 left-0 w-full h-dvh z-20 flex flex-col items-center justify-center text-center px-4"
+    >
       <div class="max-w-3xl">
         <Image
           src={mainLogo}
@@ -34,9 +39,11 @@ export const prerender = true;
           loading="eager"
         />
       </div>
-      <div class="text-xl max-w-2xl mx-auto italic">
-        <p>Construimos lo que llevas años imaginando.</p>
+      <div class="text-xl max-w-2xl mx-auto">
+        <p class="italic mb-4">Construimos lo que llevas años imaginando.</p>
+        <RotatingText />
       </div>
+      
       <a
         href="/servicios"
         class="inline-block mt-10 px-20 py-3 bg-hv-blue text-white font-semibold text-xs sm:text-sm rounded-3xl shadow-lg hover:bg-hv-light-blue hover:text-hv-blue hover:shadow-[0_0_20px_5px_theme('colors.amber.50')] transition duration-500 ease-in-out text-center"
