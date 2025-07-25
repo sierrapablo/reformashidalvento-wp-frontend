@@ -1,15 +1,39 @@
 ---
-import { getLatestPosts } from "../lib/wp";
+import { getProducts } from "../lib/wp";
+import type { STProduct } from "../types/wp";
 import ProductCard from "../components/ProductCard.astro";
 
-const featuredPosts = await getLatestPosts({perPage: 100});
+let featuredPosts: STProduct[] = [];
+let error = false;
+
+try {
+  featuredPosts = await getProducts();
+} catch (e) {
+  console.error("Error al obtener los posts de WordPress:", e);
+  error = true;
+}
 
 export const prerender = false;
 ---
 
 <section class="container mx-auto px-4 py-12">
-  <h2 class="text-3xl text-neutral-900 font-bold mb-8 text-center">Nuestros servicios</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {featuredPosts.map((post) => <ProductCard {...post} />)}
-  </div>
+  <h2 class="text-3xl text-neutral-900 font-bold mb-8 text-center">
+    Nuestros servicios
+  </h2>
+
+  {
+    error ? (
+      <div class="text-center text-red-600 bg-red-50 border border-red-200 rounded-lg p-6">
+        <p class="text-lg font-semibold">
+          No se pudo conectar con el servidor de contenidos.
+        </p>
+      </div>
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredPosts.map((post) => (
+          <ProductCard {...post} />
+        ))}
+      </div>
+    )
+  }
 </section>

@@ -1,15 +1,28 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getPostInfo } from "../../lib/wp";
+import { getProductInfo } from "../../lib/wp";
 
 const slug = Astro.params.slug;
 if (!slug) return Astro.redirect("/404");
-const { title, content, seo } = await getPostInfo(slug);
+
+let title: string;
+let content: string;
+let description: string;
+
+try {
+  const data = await getProductInfo(slug);
+  title = data.title;
+  content = data.content;
+  description = data.seo?.description ?? "Servicio de Reformas Hidalvento.";
+} catch (e) {
+  console.error("Error al obtener el servicio desde la API:", e);
+  return Astro.redirect("/404");
+}
 
 export const prerender = false;
 ---
 
-<Layout title={title} description={seo.description}>
+<Layout title={title} description={description}>
   <article class="prose max-w-2xl mx-auto mt-10">
     <h1>{title}</h1>
     <div set:html={content} />
