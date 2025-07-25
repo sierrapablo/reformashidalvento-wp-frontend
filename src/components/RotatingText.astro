@@ -1,0 +1,25 @@
+---
+import { messages } from "../data/rotatingMessages.ts";
+---
+
+<script>
+  import { startRotatingMessages } from "../animations/rotatingMessages.ts";
+
+  import { messages } from "../data/rotatingMessages.ts";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const el = document.getElementById("rotating-text");
+    if (el) {
+      startRotatingMessages(el, messages, 7500, 800);
+    }
+  });
+</script>
+<p class="sr-only">{messages[0]}</p>
+<p class="sr-only">{messages[1]}</p>
+<p class="sr-only">{messages[2]}</p>
+<p
+  id="rotating-text"
+  class="transition-opacity duration-800 ease-in-out text-opacity-100 min-h-70 sm:min-h-50 py-4 font-semibold"
+>
+  {messages[0]}
+</p>
