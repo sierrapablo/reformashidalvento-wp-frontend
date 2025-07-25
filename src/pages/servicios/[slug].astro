@@ -1,4 +1,5 @@
 ---
+import Navigation from "../../components/Navigation.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getProductInfo } from "../../lib/wp";
 
@@ -23,6 +24,7 @@ export const prerender = false;
 ---
 
 <Layout title={title} description={description}>
+  <Navigation />
   <article class="prose max-w-2xl mx-auto mt-10">
     <h1>{title}</h1>
     <div set:html={content} />

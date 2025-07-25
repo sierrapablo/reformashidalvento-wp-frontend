@@ -5,6 +5,7 @@ import featuredImage from "../assets/index-bg.webp?url";
 import { Image } from "astro:assets";
 import ProductSection from "../components/ProductSection.astro";
 import SkeletonProductSection from "../components/SkeletonProductSection.astro";
+import Navigation from "../components/Navigation.astro";
 
 const HEAD_CONTENT = {
   title: "Reformas Hidalvento - Reformas del hogar de Valencia, España.",
@@ -16,6 +17,7 @@ export const prerender = true;
 ---
 
 <Layout {...HEAD_CONTENT}>
+  <Navigation focused="servicios" />
   <div class="flex flex-col min-h-screen w-full">
     <section
       class="relative bg-cover bg-center bg-no-repeat text-white w-full h-full min-h-[40vh]"
@@ -48,9 +50,9 @@ export const prerender = true;
       </div>
     </section>
     <section class="bg-white">
-      <ProductSection server:defer >
+      <ProductSection server:defer>
         <SkeletonProductSection slot="fallback" elements={6} />
-      </PostSection>
+      </ProductSection>
       <div class="items-center justify-center text-center py-12">
         <a
           href="/"
