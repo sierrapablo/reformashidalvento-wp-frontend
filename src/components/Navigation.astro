@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo_blue.webp";
+
+const { focused } = Astro.props;
+
+type NavLink = {
+  href: string;
+  id: string;
+  name: string;
+};
+
+const links: NavLink[] = [
+  { href: "/sobre-nosotros", id: "sobre-nosotros", name: "Sobre Nosotros" },
+  { href: "/servicios", id: "servicios", name: "Servicios" },
+  { href: "/galeria", id: "galeria", name: "Galería" },
+  { href: "/contacto", id: "contacto", name: "Contacto" },
+];
+---
+
+<nav
+  class="h-14 bg-white border-b-4 border-b-blue-100 p-2 w-full top-0 z-50 sticky flex justify-between items-center"
+>
+  {/* Contenedor izquierdo: Logo */}
+  <div class="flex items-center gap-2">
+    <a href="/">
+      <Image src={logo} alt="HidalVento" class="h-10 w-auto" loading="lazy" />
+    </a>
+  </div>
+  {/* Enlaces normales (desktop) */}
+  <div class="hidden md:flex gap-2 ml-auto items-center">
+    {
+      links.map(({ href, id, name }) => (
+        <a
+          href={href}
+          class={`text-neutral-700 mx-1 px-2 py-1 rounded-sm transition duration-500 ease-in-out hover:bg-hv-light-blue hover:text-hv-blue ${
+            focused === id ? "bg-hv-light-blue text-hv-blue font-semibold" : ""
+          }`}
+        >
+          {name}
+        </a>
+      ))
+    }
+  </div>
+</nav>
