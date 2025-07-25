@@ -1,8 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --color-hv-grey: #c0ccd8;
+  --color-hv-light-blue: #aacbed;
+  --color-hv-blue-grey-1: #80a1c1;
+  --color-hv-blue-grey-2: #577ea5;
+  --color-hv-blue: #1d6bba;
+}
+
 html,
 body {
+  background-color: black;
   margin: 0;
   width: 100%;
   height: 100%;
