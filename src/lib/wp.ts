@@ -1,17 +1,20 @@
-import type { any } from "astro:schema";
-
 const domain = import.meta.env.WP_DOMAIN;
 const apiUrl = `${domain}/wp-json/wp/v2/`;
 
 export const getPageInfo = async (slug: string) => {
-  const response = await fetch(`${apiUrl}pages?slug=${slug}`);
+  const response = await fetch(`${apiUrl}pages?slug=${slug}&_embed`);
 
   if (!response.ok) throw new Error('Failed to fetch page info');
 
   const [data] = await response.json();
-  const { title: { rendered: title }, content: { rendered: content } } = data;
+  const {
+    title: { rendered: title },
+    content: { rendered: content },
+    yoast_head_json: seo
+  } = data;
+  const featuredImage = data._embedded['wp:featuredmedia'][0].source_url;
 
-  return { title, content };
+  return { title, content, seo, featuredImage };
 
 };
 
