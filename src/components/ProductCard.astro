@@ -1,5 +1,4 @@
 ---
-
 interface Props {
   title: string;
   excerpt: string;
@@ -8,22 +7,28 @@ interface Props {
   slug: string;
 }
 
-const { title, excerpt, featuredImage, date, slug } = Astro.props;
+const { title, excerpt, featuredImage, slug } = Astro.props;
 ---
 
-<article
-  class="bg-white rounded-lg shadow-md overflow-hidden
-  transition-transform hover:scale-105"
->
-  <img src={featuredImage} alt={title} class="w-full h-48 object-cover" />
-  <div class="p-6">
-    <h2
-      class="text-xl font-bold mb-2 text-product-primary
-      hover:text-product-secondary"
-    >
-      <a href={`/post/${slug}`}>{title}</a>
-    </h2>
-    <p class="text-gray-600 text-sm mb-4">{date}</p>
-    <div class="text-gray-700" set:html={excerpt} />
-  </div>
-</article>
+<a href={`/servicios/${slug}`} class="block group">
+  <article
+    class="bg-white rounded-lg shadow-md overflow-hidden
+  transition-all hover:scale-105 hover:bg-hv-blue ease-in-out duration-300"
+  >
+    <img
+      src={featuredImage}
+      alt={title}
+      class="w-full h-48 object-cover"
+      loading="lazy"
+    />
+    <div class="p-6">
+      <h2
+        class="text-xl text-neutral-900 font-bold mb-2 text-product-primary
+      group-hover:text-white transition-colors"
+      >
+        {title}
+      </h2>
+      <div class="text-neutral-700 group-hover:text-white transition-colors" set:html={excerpt} />
+    </div>
+  </article>
+</a>
