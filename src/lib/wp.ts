@@ -18,7 +18,7 @@ export const getPageInfo = async (slug: string) => {
 
 };
 
-export const getLatestPosts = async ({ perPage = 10 }: { perPage?: number } = {}) => {
+export const getLatestPosts = async ({ perPage = 100 }: { perPage?: number } = {}) => {
   const response = await fetch(
     `${apiUrl}posts?per_page=${perPage}&_embed`
   );
