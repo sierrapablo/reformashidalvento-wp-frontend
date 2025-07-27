@@ -1,0 +1,79 @@
+---
+import mainLogo from "../assets/logo_white.webp"
+import { Icon } from "astro-icon/components";
+import { socialLinks } from "../data/social";
+import { Image } from "astro:assets";
+
+const mapsUrl = encodeURI(
+    'https://www.google.com/maps/search/?api=1&query=Pl. Julio Verne 2, Esc. B, 7, 46017 Valencia, España'
+  );
+---
+
+
+<footer
+  class="bg-hv-blue lg:px-40 py-10 w-full"
+>
+  <div class="grid md:grid-cols-4 gap-4 mt-12 place-items-start">
+    {/* Logo y Redes Sociales */}
+    <div class="flex flex-col m-4">
+      <div class="flex space-x-4 md:mt-4 justify-center">
+        <Image src={mainLogo} alt="HidalVento" class="lg:w-80 md:w-50 w-30" loading="lazy" />
+      </div>
+      <div class="flex space-x-4 md:mt-4 justify-center">
+        {
+          socialLinks.map((item) => (
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={item.name}
+          class="transition-all duration-300 hover:drop-shadow-[0_0_6px_white] hover:text-black text-white"
+        >
+          <Icon name={item.iconName} />
+        </a>
+      ))
+    }
+      </div>
+    </div>
+
+    {/* Tarjeta de contacto */}
+    <div class="flex flex-col m-4">
+    <p class="font-bold text-white mb-2">Contacto</p>
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-gray-300 hover:text-white transition wrap"
+      >
+        Pl. Julio Verne 2, Esc. B, 7<br />
+        46017 Valencia, España
+      </a>
+      <a href="/contacto" class="text-sm text-gray-300 hover:text-white transition wrap">+34 641 68 91 30</a>
+      <a href="/contacto" class="text-sm text-gray-300 hover:text-white transition wrap"
+        >comercial@reformashidalvento.com</a
+      >
+      <a href="/contacto" class="text-sm text-gray-300 hover:text-white transition wrap">Contacto</a>
+    </div>
+
+    {/* Links principales */}
+    <div class="flex flex-col m-4">
+      <p class="font-bold text-white mb-2">Cómo podemos ayudarte</p>
+      <a href="/" class="text-sm text-gray-300 hover:text-white transition wrap">Inicio</a>
+      <a href="/sobre-nosotros" class="text-sm text-gray-300 hover:text-white transition wrap">Sobre nosotros</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Servicios</a>
+      <a href="/galeria" class="text-sm text-gray-300 hover:text-white transition wrap">Galería</a>
+    </div>
+
+    {/* Links a servicios */}
+    <div class="flex flex-col m-4">
+      <a href="/servicios" class="font-bold text-white mb-2">Servicios</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Reformas</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Fontanería</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Electricidad</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Pintura</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Ventanas</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Suelo</a>
+      <a href="/servicios" class="text-sm text-gray-300 hover:text-white transition wrap">Ducha</a>
+    </div>
+  </div>
+</footer>

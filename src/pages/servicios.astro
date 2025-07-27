@@ -6,6 +6,8 @@ import { Image } from "astro:assets";
 import ProductSection from "../components/ProductSection.astro";
 import SkeletonProductSection from "../components/SkeletonProductSection.astro";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+
 
 const HEAD_CONTENT = {
   title: "Reformas Hidalvento - Reformas del hogar de Valencia, España.",
@@ -63,4 +65,5 @@ export const prerender = true;
       </div>
     </section>
   </div>
+  <Footer />
 </Layout>
