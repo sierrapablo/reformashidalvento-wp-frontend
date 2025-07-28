@@ -4,8 +4,8 @@ import mainLogo from "../assets/logo_white.webp";
 import featuredImage from "../assets/index-bg.webp?url";
 import { Image } from "astro:assets";
 import Navigation from "../components/Navigation.astro";
+import CTASection from "../components/CTASection.astro";
 import Footer from "../components/Footer.astro";
-
 
 const HEAD_CONTENT = {
   title: "Reformas Hidalvento - Reformas del hogar de Valencia, España.",
@@ -59,6 +59,7 @@ export const prerender = true;
         </a>
       </div>
     </section>
+    <CTASection />
   </div>
   <Footer />
 </Layout>

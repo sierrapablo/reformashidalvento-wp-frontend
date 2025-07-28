@@ -1,0 +1,41 @@
+---
+// components/CTASection.astro
+
+import { Image } from "astro:assets";
+import ctaBackground from "../assets/index-bg.webp"; // o el fondo que tú prefieras
+
+const TITLE = "¿Listo para renovar tu hogar con nosotros?";
+const BUTTON_TEXT = "Solicita tu presupuesto";
+const BUTTON_URL = "/contacto";
+---
+
+<section class="relative w-full overflow-hidden text-white">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <Image
+      src={ctaBackground}
+      alt=""
+      class="w-full h-full object-cover scale-[1.15] transition-transform duration-700 ease-out"
+      loading="lazy"
+      fetchpriority="low"
+    />
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 min-h-[60vh] flex flex-col items-center justify-center text-center px-4 py-16 sm:px-6 lg:px-8 gap-10 lg:flex-row lg:justify-between max-w-7xl mx-auto">
+    <div class="max-w-2xl lg:text-left">
+      <h2 class="text-3xl sm:text-4xl font-bold text-balance">
+        {TITLE}
+      </h2>
+    </div>
+
+    <a
+      href={BUTTON_URL}
+      class="relative inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold bg-hv-blue text-white shadow-xl hover:bg-hv-light-blue hover:text-hv-blue transition duration-300 ease-in-out"
+    >
+      <span class="z-10 relative">{BUTTON_TEXT}</span>
+      <span class="absolute inset-0 rounded-full opacity-30 blur-xl animate-pulse"></span>
+    </a>
+  </div>
+</section>

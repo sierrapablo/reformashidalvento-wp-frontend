@@ -4,12 +4,17 @@ import mainLogo from "../assets/logo_white.webp";
 import featuredImage from "../assets/index-bg.webp?url";
 import { Image } from "astro:assets";
 import Navigation from "../components/Navigation.astro";
+import CTASection from "../components/CTASection.astro";
 import Footer from "../components/Footer.astro";
 const HEAD_CONTENT = {
   title: "Reformas Hidalvento - Reformas del hogar de Valencia, España.",
   description:
     "Expertos en reformas integrales del hogar en Valencia. Calidad, experiencia y compromiso.",
 };
+
+import img1 from "../assets/index-bg.webp";
+import img2 from "../assets/index-bg.webp";
+import img3 from "../assets/index-bg.webp";
 
 export const prerender = true;
 ---
@@ -47,16 +52,93 @@ export const prerender = true;
         </div>
       </div>
     </section>
+    <section class="bg-white py-16 px-4 sm:px-6 lg:px-8 text-hv-blue">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+      >
+        <!-- Columna Izquierda: Texto -->
+        <div class="px-2 lg:px-12 sm:px-20">
+          <h2
+            class="text-3xl sm:text-4xl font-bold mb-6 text-left lg:text-left"
+          >
+            Sobre Nosotros
+          </h2>
+          <div
+            class="space-y-6 text-base sm:text-lg text-gray-800 leading-relaxed text-justify"
+          >
+            <p>
+              En <strong>Reformas Hidalvento</strong> llevamos años transformando
+              hogares con <em>dedicación</em>, <em>profesionalismo</em> y una <strong
+                >atención al detalle</strong
+              > que nos distingue. No solo reformamos espacios: ayudamos a las personas
+              a mejorar su calidad de vida.
+            </p>
+            <p>
+              Ofrecemos soluciones <strong>personalizadas</strong>, adaptadas a
+              cada cliente. Ya sea una reforma integral o una pequeña
+              reparación, cada proyecto es una oportunidad para crear un hogar
+              más funcional, moderno y acogedor.
+            </p>
+            <p>
+              Contamos con un equipo multidisciplinar especializado en <em
+                >fontanería, electricidad, pintura, instalación de suelos,
+                puertas, ventanas</em
+              > y mucho más. Trabajamos solo con materiales de <strong
+                >primera calidad</strong
+              > y cuidamos cada detalle como si fuera para nuestra propia casa.
+            </p>
+            <p>
+              La <strong>transparencia</strong> es parte de nuestra filosofía: mantenemos
+              una comunicación constante para que siempre sepas en qué punto está
+              tu reforma. Cumplimos plazos, presupuestos y expectativas.
+            </p>
+            <p>
+              En Reformas Hidalvento, construimos más que espacios. <strong
+                >Construimos confianza</strong
+              >, tranquilidad y soluciones duraderas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Imágenes -->
+        <div class="space-y-6">
+          <div class="rounded-xl overflow-hidden shadow-md">
+            <Image
+              src={img1}
+              alt="Equipo trabajando en reforma de cocina"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden shadow-md">
+              <Image
+                src={img2}
+                alt="Detalle de alicatado moderno en baño"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-md">
+              <Image
+                src={img3}
+                alt="Cambio de suelo laminado en salón"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="bg-white">
       <div class="items-center justify-center text-center py-12">
         <a
-          href="/"
+          href="/servicios"
           class="inline-block mt-10 px-20 py-3 bg-hv-blue text-white font-semibold text-xs sm:text-sm rounded-3xl shadow-lg hover:bg-hv-light-blue hover:text-hv-blue hover:shadow-[0_0_20px_5px_theme('colors.amber.50')] transition duration-500 ease-in-out text-center"
         >
-          Volver al inicio
+          Nuestros servicios
         </a>
       </div>
-    </section>
+    </section>F
+    <CTASection />
   </div>
   <Footer />
 </Layout>

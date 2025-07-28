@@ -7,6 +7,7 @@ import ProductSection from "../components/ProductSection.astro";
 import SkeletonProductSection from "../components/SkeletonProductSection.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import CTASection from "../components/CTASection.astro";
 
 
 const HEAD_CONTENT = {
@@ -55,15 +56,8 @@ export const prerender = true;
       <ProductSection server:defer>
         <SkeletonProductSection slot="fallback" elements={6} />
       </ProductSection>
-      <div class="items-center justify-center text-center py-12">
-        <a
-          href="/"
-          class="inline-block mt-10 px-20 py-3 bg-hv-blue text-white font-semibold text-xs sm:text-sm rounded-3xl shadow-lg hover:bg-hv-light-blue hover:text-hv-blue hover:shadow-[0_0_20px_5px_theme('colors.amber.50')] transition duration-500 ease-in-out text-center"
-        >
-          Volver al inicio
-        </a>
-      </div>
     </section>
+    <CTASection />
   </div>
   <Footer />
 </Layout>
