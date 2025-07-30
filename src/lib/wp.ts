@@ -33,9 +33,7 @@ export const getPageInfo = async (slug: string) => {
  * @returns 
  */
 export const getProducts = async () => {
-  const response = await fetch(
-    `${apiUrl}posts?&_embed`
-  );
+  const response = await fetch(`${apiUrl}posts?_embed&orderby=date&order=asc`);
 
   if (!response.ok) throw new Error('Failed to fetch latest posts');
 
