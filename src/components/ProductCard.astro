@@ -10,10 +10,9 @@ interface Props {
 const { title, excerpt, featuredImage, slug } = Astro.props;
 ---
 
-<a href={`/servicios/${slug}`} class="block group">
+<div class="block group cursor-default">
   <article
-    class="bg-white rounded-lg shadow-md overflow-hidden
-  transition-all hover:scale-105 h-88 hover:bg-hv-blue ease-in-out duration-300"
+    class="bg-white rounded-lg shadow-md overflow-hidden transition-all hover:scale-110 h-120 hover:bg-hv-blue hover:shadow-4xl ease-in-out duration-300"
   >
     <img
       src={featuredImage}
@@ -23,12 +22,14 @@ const { title, excerpt, featuredImage, slug } = Astro.props;
     />
     <div class="p-6">
       <h2
-        class="text-xl text-neutral-900 font-bold mb-2 text-product-primary
-      group-hover:text-white transition-colors"
+        class="text-xl text-neutral-900 font-bold mb-2 text-product-primary group-hover:text-white transition-colors"
       >
         {title}
       </h2>
-      <div class="text-neutral-700 group-hover:text-white transition-colors" set:html={excerpt} />
+      <div
+        class="text-neutral-700 group-hover:text-white transition-colors"
+        set:html={excerpt}
+      />
     </div>
   </article>
-</a>
+</div>
